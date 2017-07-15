@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="application.css">
+    <script src="clock.js"></script>
+    <link rel="icon" href="clock.ico" />
+    <title> Timer </title
+  </head>
+  <body>
+    <div>
+      <h1>Overall Time</h1>
+      <div class="clock" id="clockdiv">
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Seconds</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h3>Health</h3>
+        <div class="clock" id="clockdiv2">
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+          </br>
+          <button class="reset-button" onclick="resetClock('clockdiv2')">Reset</button>
+        </div>
+      </div>
+      <div>
+        <h3>Shield</h3>
+        <div class="clock" id="clockdiv3">
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+          </br>
+          <button class="reset-button" onclick="resetClock('clockdiv3')">Reset</button>
+        </div>
+      </div>
+      <div>
+        <h3>Special Attack</h3>
+        <div class="clock" id="clockdiv4">
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+          </br>
+          <button class="reset-button" onclick="resetClock('clockdiv4')">Reset</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
