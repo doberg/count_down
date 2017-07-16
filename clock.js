@@ -2,8 +2,8 @@ function alertBadge(id) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  minutesSpan.style.background = "#DE413A";
-  secondsSpan.style.background = "#DE413A";
+  minutesSpan.style.background = "#d13b2e";
+  secondsSpan.style.background = "#d13b2e";
 };
 
 function getTimeRemaining(endtime) {
@@ -92,8 +92,8 @@ function resetClock(id) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  minutesSpan.style.background = "#C26225";
-  secondsSpan.style.background = "#C26225";
+  minutesSpan.style.background = "#282c34";
+  secondsSpan.style.background = "#282c34";
   var currentTime = Date.parse(new Date());
   var deadline  = new Date(currentTime + 12*60*1000);
   var deadline2 = new Date(currentTime +  4*60*1000);
@@ -146,7 +146,7 @@ ready(function () {
   var clockOne = initializeClockOne('clockdiv', deadline);
 
   var currentTime2 = deadline
-  var deadline2 = new Date((currentTime) + 4*60*1000);
+  var deadline2 = new Date((currentTime) + .1*60*1000);
   var clockTwo = initializeClockTwo('clockdiv2', deadline2)
 
   var currentTime3 = deadline

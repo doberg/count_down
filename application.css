@@ -1,19 +1,19 @@
 body{
 	text-align: center;
-	background: #5285c4;
+	background: #21252b;
   font-family: sans-serif;
   font-weight: 100;
 }
 
 h1{
-  color: #233B5D;
+  color: #e2c08d;
   font-weight: 100;
   font-size: 40px;
   margin: 40px 0px 20px;
 }
 
 h3{
-  color: #233B5D;
+  color: #e2c08d;
   font-weight: 100;
   font-size: 20px;
   margin: 40px 0px 20px;
@@ -21,7 +21,7 @@ h3{
 
 .clock{
 	font-family: sans-serif;
-	color: #233B5D;
+	color: #e2c08d;
 	display: inline-block;
 	font-weight: 100;
 	text-align: center;
@@ -31,14 +31,15 @@ h3{
 .clock > div{
 	padding: 10px;
 	border-radius: 3px;
-	background: #8F9190;
+	background: #282c34;
+  box-shadow: 5px 5px 2px #181a1f;
 	display: inline-block;
 }
 
 .clock div > span{
 	padding: 15px;
 	border-radius: 3px;
-	background: #C26225;
+	background: #282c34;
 	display: inline-block;
 }
 
@@ -48,8 +49,9 @@ h3{
 }
 
 .reset-button{
-  background: #C58F69;
-  color: #5B2C36;
+  background: #282c34;
+  border-color: 181a1f;
+  color: #e2c08d;
   width: 105px;
   height: 35px;
 }
