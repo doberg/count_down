@@ -3,7 +3,7 @@ function alertBadge(id) {
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
   minutesSpan.style.background = "#d13b2e";
-  secondsSpan.style.background = "#d13b2e";
+  secondsSpan.style.background = "#d13b2e"
 };
 
 function getTimeRemaining(endtime) {
@@ -43,7 +43,7 @@ function initializeClockTwo(id, endtime) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  document.getElementById('reset-one').style.display = "none"
+  document.getElementById('shield').className = "shield"
 
   function updateClockTwo() {
     var t = getTimeRemaining(endtime);
@@ -55,7 +55,7 @@ function initializeClockTwo(id, endtime) {
       clearInterval(clockTwo);
       clockTwo = null;
       alertBadge(id);
-      document.getElementById('reset-one').style.display = "inline-block"
+      document.getElementById('shield').className = "shield red"
     }
   }
 
@@ -68,7 +68,7 @@ function initializeClockThree(id, endtime) {
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
   var resetButton = clock.querySelector('.reset-button');
-  document.getElementById('reset-two').style.display = "none"
+  document.getElementById('eye').className = "eye"
 
   function updateClockThree() {
     var t = getTimeRemaining(endtime);
@@ -80,7 +80,7 @@ function initializeClockThree(id, endtime) {
       clearInterval(clockThree);
       clockThree = null;
       alertBadge(id);
-      document.getElementById('reset-two').style.display = "inline-block"
+      document.getElementById('eye').className = "eye red"
     }
   }
 

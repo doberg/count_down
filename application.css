@@ -55,3 +55,36 @@ h3{
   width: 105px;
   height: 35px;
 }
+
+.eye{
+  margin-top: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-image: url("eye.svg");
+  background-color: #21252b;
+  background-repeat: no-repeat;
+  background-position: center;
+  visibility: visible;
+}
+
+.eye.red{
+  background-image: url("eye-red.svg");
+}
+
+.shield{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-image: url("shield.svg");
+  background-color: #21252b;
+  background-repeat: no-repeat;
+  background-position: center;
+  visibility: visible;
+}
+
+.shield.red{
+  background-image: url("shield-red.svg");
+}
