@@ -6,6 +6,16 @@ function alertBadge(id) {
   secondsSpan.style.background = "#d13b2e"
 };
 
+function alertBadgeRemove(id) {
+  var clock = document.getElementById(id);
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+  minutesSpan.style.background = "#282c34";
+  secondsSpan.style.background = "#282c34"
+};
+
+
+
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -31,7 +41,7 @@ function initializeClockOne(id, endtime) {
     if (t.total <= 0) {
       clearInterval(clockOne);
       clockOne = null;
-      alertBadge(id);
+      resetClock('clockdiv');
     }
   }
 
@@ -43,6 +53,7 @@ function initializeClockTwo(id, endtime) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
+  alertBadgeRemove(id);
   document.getElementById('shield').className = "shield"
 
   function updateClockTwo() {
@@ -68,6 +79,7 @@ function initializeClockThree(id, endtime) {
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
   var resetButton = clock.querySelector('.reset-button');
+  alertBadgeRemove(id);
   document.getElementById('eye').className = "eye"
 
   function updateClockThree() {
@@ -120,9 +132,6 @@ function resetClock(id) {
   }
 };
 
-
-
-
 window.readyHandlers = [];
 window.ready = function ready(handler) {
   window.readyHandlers.push(handler);
@@ -140,9 +149,8 @@ window.handleState = function handleState () {
 document.onreadystatechange = window.handleState;
 
 ready(function () {
-  var timeInMinutes = 12;
   var currentTime = Date.parse(new Date());
-  var deadline = new Date(currentTime + timeInMinutes*60*1000);
+  var deadline = new Date(currentTime + .5*60*1000);
   var clockOne = initializeClockOne('clockdiv', deadline);
 
   var currentTime2 = deadline
@@ -150,6 +158,6 @@ ready(function () {
   var clockTwo = initializeClockTwo('clockdiv2', deadline2)
 
   var currentTime3 = deadline
-  var deadline3 = new Date((currentTime) + 4*60*1000);
+  var deadline3 = new Date((currentTime) + .4*60*1000);
   clockThree = initializeClockThree('clockdiv3', deadline3)
 });
