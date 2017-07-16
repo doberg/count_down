@@ -146,7 +146,7 @@ ready(function () {
   var clockOne = initializeClockOne('clockdiv', deadline);
 
   var currentTime2 = deadline
-  var deadline2 = new Date((currentTime) + .2*60*1000);
+  var deadline2 = new Date((currentTime) + 4*60*1000);
   var clockTwo = initializeClockTwo('clockdiv2', deadline2)
 
   var currentTime3 = deadline
