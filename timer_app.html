@@ -10,8 +10,8 @@
   </head>
   <body>
     <div>
-      <h1>Match Time</h1>
-      <div class="clock" id="clockdiv">
+      <h1 id='match'>Match Time</h1>
+      <div class="clock" id="clock-one">
         <div>
           <span class="minutes"></span>
           <div class="smalltext">Minutes</div>
@@ -24,11 +24,13 @@
     </div>
 
     <div>
-      <div>
-        <div class='shield' id='shield' onclick="resetClock('clockdiv2')">
-        </div>
-        </br>
-        <div class="clock" id="clockdiv2">
+      <span class='shield' id='shield'></span>
+      <span class='eye' id='eye'></span>
+    </div>
+
+    <div>
+      <span>
+        <span class="clock" id="clock-two">
           <div>
             <span class="minutes"></span>
             <div class="smalltext">Minutes</div>
@@ -37,14 +39,10 @@
             <span class="seconds"></span>
             <div class="smalltext">Seconds</div>
           </div>
-          </br>
-        </div>
-      </div>
-      <div>
-        <div class='eye' id='eye' onclick="resetClock('clockdiv3')">
-        </div>
-        </br>
-        <div class="clock" id="clockdiv3">
+        </span>
+      </span>
+      <span>
+        <span class="clock" id="clock-three">
           <div>
             <span class="minutes"></span>
             <div class="smalltext">Minutes</div>
@@ -53,9 +51,8 @@
             <span class="seconds"></span>
             <div class="smalltext">Seconds</div>
           </div>
-          </br>
-        </div>
-      </div>
+        </span>
+      </span>
     </div>
   </body>
 </html>

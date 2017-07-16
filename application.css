@@ -43,6 +43,10 @@ h3{
 	display: inline-block;
 }
 
+#clock-two{
+
+}
+
 .smalltext{
 	padding-top: 5px;
 	font-size: 16px;
@@ -57,10 +61,12 @@ h3{
 }
 
 .eye{
+  padding-right: 115px;
+  padding-bottom: 15px;
   margin-top: 10px;
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   background-image: url("eye.svg");
   background-color: #21252b;
   background-repeat: no-repeat;
@@ -73,11 +79,12 @@ h3{
 }
 
 .shield{
+  padding-right: 100px;
   margin-bottom: 10px;
   margin-top: 10px;
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   background-image: url("shield.svg");
   background-color: #21252b;
   background-repeat: no-repeat;
