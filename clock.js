@@ -32,6 +32,7 @@ function initializeClockOne(id, endtime) {
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
   document.getElementById('match').style.color = "#e2c08d";
+  document.getElementById('match').style.cursor = "not-allowed";
   var old_element = document.getElementById("match");
   var new_element = old_element.cloneNode(true);
   old_element.parentNode.replaceChild(new_element, old_element);
@@ -47,6 +48,8 @@ function initializeClockOne(id, endtime) {
       clockOne = null;
       alertBadge(id);
       document.getElementById('match').style.color = "#d13b2e";
+      document.getElementById('match').style.cursor = "pointer";
+
       document.getElementById('match').addEventListener("click", function(e) {
         resetClock(id);
       }, false);
