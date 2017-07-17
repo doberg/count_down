@@ -1,3 +1,24 @@
+function saveNote() {
+  var newNote = document.getElementById('note');
+  console.log(newNote.value);
+
+  var element  = document.getElementById('note-list'); // assuming ul exists
+  var fragment = document.createDocumentFragment();
+
+  if (newNote) {
+    notes.push(newNote.value)
+    for (var i = 0, n; n = notes[i]; i++) {
+      var liElement = document.createElement('li');
+      liElement.textContent = n;
+      fragment.appendChild(liElement);
+    }
+
+    element.appendChild(fragment);
+  }
+
+  return newNote.value
+}
+
 function alertBadge(id) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
@@ -17,7 +38,6 @@ function alertBadgeRemove(id) {
 function clearHist() {
   shieldLaps = []
   invisLaps = []
-
   invisList = document.getElementById('invis-laps')
   while( invisList.firstChild ){
     invisList.removeChild( invisList.firstChild );
@@ -243,6 +263,7 @@ function recordInvisLap() {
 ready(function () {
   shieldLaps = []
   invisLaps = []
+  notes = []
   var currentTime = Date.parse(new Date());
   var deadline = new Date(currentTime + .3*60*1000);
   clockOne = initializeClockOne('clock-one', deadline);

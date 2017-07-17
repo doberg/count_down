@@ -58,27 +58,15 @@
     <div>
       <ul class="shield-laps" id="shield-laps"></ul>
       <ul class="invis-laps" id="invis-laps"></ul>
-
       <span class='shield-hist'>
-
       </span>
       <span class='invis-hist'>
       </span>
     </div>
     <div>
-      <input class="note" placeholder="Enter a note"></input>
-      <button class"save-note">Save</button>
-      <ul class="danger">
-        <li><strong>Danger!</strong> Some Red text...</li>
-      </ul>
-      <ul class="green">
-        <li><strong>WOOT!</strong> Some Green text...</li>
-      </ul>
-      <ul class="blue">
-        <li><strong>Fancy!</strong> Some Blue text...</li>
-      </ul>
-      <ul class="yellow">
-        <li><strong>Sunshine!</strong> Some Yellow text...</li>
+      <input class="note" id="note" placeholder="Enter a note"></input>
+      <button class"save-note" onclick="saveNote()">Save</button>
+      <ul class="note-list" id="note-list">
       </ul>
     </div>
   </body>
