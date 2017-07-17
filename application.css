@@ -85,9 +85,8 @@ h3{
 ul.invis-laps{
   color: #e2c08d;
   list-style-type: none;
-  margin: 0;
+  margin:  10px 0px 10px 145px;
   padding: 0;
-  margin-left: 145px;
   display: inline-block;
 }
 
@@ -109,9 +108,8 @@ ul.invis-laps{
 ul.shield-laps{
   color: #e2c08d;
   list-style-type: none;
-  margin: 0;
+  margin: 10px 0 10px 10px;
   padding: 0;
-  margin-left: 10px;
   display: inline-block;
 }
 
@@ -121,21 +119,25 @@ ul.shield-laps{
 }
 
 .danger {
+    list-style-type: none;
     background-color: #ffdddd;
     border-left: 6px solid #f44336;
 }
 
 .green {
+    list-style-type: none;
     background-color: #88b04b;
     border-left: 6px solid #4e7f00;
 }
 
 .blue {
+    list-style-type: none;
     background-color: #2f84ea;
     border-left: 6px solid #0065ff;
 }
 
 .yellow {
+    list-style-type: none;
     background-color: #fcfcc7;
     border-left: 6px solid #dbdb00;
 }
