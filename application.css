@@ -130,6 +130,12 @@ ul.shield-laps{
   border-left: 6px solid #0065ff;
 }
 
+.save-note {
+  background-color: #2f84ea;
+  width: 70px;
+  height: 35px;
+}
+
 .color {
   color: #e2c08d;
 }
