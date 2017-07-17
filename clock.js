@@ -3,27 +3,20 @@ function saveNote() {
   var newColorOne = document.getElementById('colorOne').value;
   var newColorTwo = document.getElementById('colorTwo').value;
   var newColorThree = document.getElementById('colorThree').value;
-  console.log(newNote.value);
-
   var element  = document.getElementById('note-list'); // assuming ul exists
   var fragment = document.createDocumentFragment();
 
   if (newNote) {
     notes.push(newNote.value)
-
-      var liElement = document.createElement('li');
-      liElement.textContent = notes[notes.length-1];
-      liElement.style.backgroundColor = newColorTwo;
-      liElement.style.color = newColorThree;
-      liElement.borderLeftColor = newColorOne;
-      fragment.appendChild(liElement);
-
-    newNote.value = '';
-
+    var liElement = document.createElement('li');
+    liElement.textContent = notes[notes.length-1];
+    liElement.style.backgroundColor = newColorTwo;
+    liElement.style.color = newColorThree;
+    liElement.borderLeftColor = newColorOne;
+    fragment.appendChild(liElement);
     element.appendChild(fragment);
   }
-
-
+  newNote.value = '';
   return newNote.value
 }
 
@@ -241,13 +234,17 @@ document.onreadystatechange = window.handleState;
 
 function recordShieldLap() {
   time = getTimeRemaining(clockOne)
+  var element  = document.getElementById('shield-laps'); // assuming ul exists
+  var fragment = document.createDocumentFragment();
+
   if (time) {
     shieldLaps.push(time.minutes + ':' + time.seconds)
-    for (var i = 0, n; n = shieldLaps[i]; i++) {
-        var liElement = document.createElement('li');
-        liElement.innerText = n;
-    }
-    document.getElementById('shield-laps').appendChild(liElement);
+
+    var liElement = document.createElement('li');
+    liElement.textContent = shieldLaps[shieldLaps.length-1];
+    fragment.appendChild(liElement);
+
+    element.appendChild(fragment);
   }
 
   return time.minutes + ':' + time.seconds
@@ -255,14 +252,17 @@ function recordShieldLap() {
 
 function recordInvisLap() {
   time = getTimeRemaining(clockOne)
+  var element  = document.getElementById('invis-laps'); // assuming ul exists
+  var fragment = document.createDocumentFragment();
 
   if (time) {
     invisLaps.push(time.minutes + ':' + time.seconds)
-    for (var i = 0, n; n = invisLaps[i]; i++) {
-        var liElement = document.createElement('li');
-        liElement.innerText = n;
-    }
-    document.getElementById('invis-laps').appendChild(liElement);
+
+    var liElement = document.createElement('li');
+    liElement.textContent = invisLaps[invisLaps.length-1];
+    fragment.appendChild(liElement);
+
+    element.appendChild(fragment);
   }
 
   return time.minutes + ':' + time.seconds
