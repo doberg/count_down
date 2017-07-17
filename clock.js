@@ -3,7 +3,7 @@ function alertBadge(id) {
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
   minutesSpan.style.background = "#d13b2e";
-  secondsSpan.style.background = "#d13b2e"
+  secondsSpan.style.background = "#d13b2e";
 };
 
 function alertBadgeRemove(id) {
@@ -36,6 +36,7 @@ function initializeClockOne(id, endtime) {
   var old_element = document.getElementById("match");
   var new_element = old_element.cloneNode(true);
   old_element.parentNode.replaceChild(new_element, old_element);
+  var t = getTimeRemaining(endtime);
 
   function updateClockOne() {
     var t = getTimeRemaining(endtime);
@@ -63,6 +64,8 @@ function initializeClockOne(id, endtime) {
 
   updateClockOne();
   var clockOne = setInterval(updateClockOne, 1000);
+
+  return endtime;
 };
 
 function initializeClockTwo(id, endtime) {
@@ -159,6 +162,7 @@ function resetClock(id) {
   } else if (id == 'clock-two') {
     clearInterval(clockTwo);
     clockTwo = null;
+    recordShieldLap()
     var two_old_element = document.getElementById("clock-two");
     var two_new_element = two_old_element.cloneNode(true);
     two_old_element.parentNode.replaceChild(two_new_element, two_old_element);
@@ -166,6 +170,7 @@ function resetClock(id) {
   } else if (id == 'clock-three') {
     clearInterval(clockThree);
     clockThree = null;
+    recordInvisLap()
     var three_old_element = document.getElementById("clock-three");
     var three_new_element = three_old_element.cloneNode(true);
     three_old_element.parentNode.replaceChild(three_new_element, three_old_element);
@@ -189,10 +194,41 @@ window.handleState = function handleState () {
 
 document.onreadystatechange = window.handleState;
 
+function recordShieldLap() {
+  time = getTimeRemaining(clockOne)
+  if (time) {
+    shieldLaps.push(time.minutes + ':' + time.seconds)
+    for (var i = 0, n; n = shieldLaps[i]; i++) {
+        var liElement = document.createElement('li');
+        liElement.innerText = n;
+    }
+    document.getElementById('shield-laps').appendChild(liElement);
+  }
+
+  return time.minutes + ':' + time.seconds
+};
+
+function recordInvisLap() {
+  time = getTimeRemaining(clockOne)
+
+  if (time) {
+    invisLaps.push(time.minutes + ':' + time.seconds)
+    for (var i = 0, n; n = invisLaps[i]; i++) {
+        var liElement = document.createElement('li');
+        liElement.innerText = n;
+    }
+    document.getElementById('invis-laps').appendChild(liElement);
+  }
+
+  return time.minutes + ':' + time.seconds
+};
+
 ready(function () {
+  shieldLaps = []
+  invisLaps = []
   var currentTime = Date.parse(new Date());
   var deadline = new Date(currentTime + .5*60*1000);
-  var clockOne = initializeClockOne('clock-one', deadline);
+  clockOne = initializeClockOne('clock-one', deadline);
 
   var currentTime2 = deadline
   var deadline2 = new Date((currentTime) + .1*60*1000);
@@ -200,5 +236,5 @@ ready(function () {
 
   var currentTime3 = deadline
   var deadline3 = new Date((currentTime) + .2*60*1000);
-  clockThree = initializeClockThree('clock-three', deadline3)
+  var clockThree = initializeClockThree('clock-three', deadline3)
 });
