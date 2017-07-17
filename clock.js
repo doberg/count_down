@@ -15,7 +15,6 @@ function saveNote() {
       liElement.textContent = notes[notes.length-1];
       liElement.style.backgroundColor = newColorTwo;
       liElement.style.color = newColorThree;
-      liElement.borderLeft = "6px solid"
       liElement.borderLeftColor = newColorOne;
       fragment.appendChild(liElement);
 
