@@ -84,7 +84,11 @@ h3{
 }
 ul.invis-laps{
   color: #e2c08d;
-  padding-left: 40px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 145px;
+  display: inline-block;
 }
 
 .shield{
@@ -104,7 +108,11 @@ ul.invis-laps{
 
 ul.shield-laps{
   color: #e2c08d;
-  padding-left: 40px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  display: inline-block;
 }
 
 .shield.red{
