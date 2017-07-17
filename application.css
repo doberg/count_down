@@ -46,10 +46,6 @@ h3{
 	display: inline-block;
 }
 
-#clock-two{
-
-}
-
 .smalltext{
 	padding-top: 5px;
 	font-size: 16px;
@@ -120,10 +116,22 @@ ul.shield-laps{
   background-image: url("shield-red.svg");
 }
 
+.note {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 340px;
+  color: #e2c08d;
+  background-color: #282c34;
+}
+
 .note-list {
   list-style-type: none;
   background-color: #2f84ea;
   border-left: 6px solid #0065ff;
+}
+
+.color {
+  color: #e2c08d;
 }
 
 .danger {

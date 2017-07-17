@@ -9,14 +9,14 @@ function saveNote() {
 
   if (newNote) {
     notes.push(newNote.value)
-    for (var i = 0, n; n = notes[i]; i++) {
+
       var liElement = document.createElement('li');
-      liElement.textContent = n;
+      liElement.textContent = notes[notes.length-1];
       liElement.style.backgroundColor = newColorTwo.value ;
       liElement.borderLeft = "6px solid"
       liElement.borderLeftColor = "newColorOne.value";
       fragment.appendChild(liElement);
-    }
+    
     newNote.value = '';
 
     element.appendChild(fragment);
