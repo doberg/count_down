@@ -1,7 +1,8 @@
 function saveNote() {
   var newNote = document.getElementById('note');
-  var newColorOne = document.getElementById('colorOne');
-  var newColorTwo = document.getElementById('colorTwo');
+  var newColorOne = document.getElementById('colorOne').value;
+  var newColorTwo = document.getElementById('colorTwo').value;
+  var newColorThree = document.getElementById('colorThree').value;
   console.log(newNote.value);
 
   var element  = document.getElementById('note-list'); // assuming ul exists
@@ -12,11 +13,12 @@ function saveNote() {
 
       var liElement = document.createElement('li');
       liElement.textContent = notes[notes.length-1];
-      liElement.style.backgroundColor = newColorTwo.value ;
+      liElement.style.backgroundColor = newColorTwo;
+      liElement.style.color = newColorThree;
       liElement.borderLeft = "6px solid"
-      liElement.borderLeftColor = "newColorOne.value";
+      liElement.borderLeftColor = newColorOne;
       fragment.appendChild(liElement);
-    
+
     newNote.value = '';
 
     element.appendChild(fragment);
