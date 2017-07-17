@@ -119,3 +119,23 @@ ul.shield-laps{
   cursor: pointer;
   background-image: url("shield-red.svg");
 }
+
+.danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+}
+
+.green {
+    background-color: #88b04b;
+    border-left: 6px solid #4e7f00;
+}
+
+.blue {
+    background-color: #2f84ea;
+    border-left: 6px solid #0065ff;
+}
+
+.yellow {
+    background-color: #fcfcc7;
+    border-left: 6px solid #f4f433;
+}
