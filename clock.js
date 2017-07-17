@@ -176,9 +176,9 @@ function resetClock(id) {
   minutesSpan.style.background = "#282c34";
   secondsSpan.style.background = "#282c34";
   var currentTime = Date.parse(new Date());
-  var deadline  = new Date(currentTime + .3*60*1000);
-  var deadline2 = new Date(currentTime +  .05*60*1000);
-  var deadline3 = new Date(currentTime +  .05*60*1000);
+  var deadline  = new Date(currentTime + 12*60*1000);
+  var deadline2 = new Date(currentTime +  2*60*1000);
+  var deadline3 = new Date(currentTime +  2*60*1000);
 
   if (id == 'clock-one') {
     clearInterval(clockOne);
@@ -273,14 +273,14 @@ ready(function () {
   invisLaps = []
   notes = []
   var currentTime = Date.parse(new Date());
-  var deadline = new Date(currentTime + .3*60*1000);
+  var deadline = new Date(currentTime + 12*60*1000);
   clockOne = initializeClockOne('clock-one', deadline);
 
   var currentTime2 = deadline
-  var deadline2 = new Date((currentTime) + .05*60*1000);
+  var deadline2 = new Date((currentTime) + 2*60*1000);
   var clockTwo = initializeClockTwo('clock-two', deadline2)
 
   var currentTime3 = deadline
-  var deadline3 = new Date((currentTime) + .05*60*1000);
+  var deadline3 = new Date((currentTime) + 2*60*1000);
   var clockThree = initializeClockThree('clock-three', deadline3)
 });
