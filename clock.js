@@ -17,9 +17,11 @@ function saveNote() {
       liElement.borderLeftColor = "newColorOne.value";
       fragment.appendChild(liElement);
     }
+    newNote.value = '';
 
     element.appendChild(fragment);
   }
+
 
   return newNote.value
 }
