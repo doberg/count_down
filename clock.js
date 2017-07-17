@@ -14,6 +14,19 @@ function alertBadgeRemove(id) {
   secondsSpan.style.background = "#282c34"
 };
 
+function clearHist() {
+  shieldLaps = []
+  invisLaps = []
+
+  invisList = document.getElementById('invis-laps')
+  while( invisList.firstChild ){
+    invisList.removeChild( invisList.firstChild );
+  }
+  shieldList = document.getElementById('shield-laps')
+  while( shieldList.firstChild ){
+    shieldList.removeChild( shieldList.firstChild );
+  }
+}
 
 
 function getTimeRemaining(endtime) {
@@ -59,6 +72,9 @@ function initializeClockOne(id, endtime) {
       var two_new_element = two_old_element.cloneNode(true);
       two_old_element.parentNode.replaceChild(two_new_element, two_old_element);
 
+      var three_old_element = document.getElementById("clock-three");
+      var three_new_element = three_old_element.cloneNode(true);
+      three_old_element.parentNode.replaceChild(three_new_element, three_old_element);
     }
   }
 
@@ -139,17 +155,18 @@ function resetClock(id) {
   minutesSpan.style.background = "#282c34";
   secondsSpan.style.background = "#282c34";
   var currentTime = Date.parse(new Date());
-  var deadline  = new Date(currentTime + 12*60*1000);
-  var deadline2 = new Date(currentTime +  2*60*1000);
-  var deadline3 = new Date(currentTime +  2*60*1000);
+  var deadline  = new Date(currentTime + .3*60*1000);
+  var deadline2 = new Date(currentTime +  .05*60*1000);
+  var deadline3 = new Date(currentTime +  .05*60*1000);
 
   if (id == 'clock-one') {
     clearInterval(clockOne);
     clockOne = null;
+    clearHist()
     var one_old_element = document.getElementById("clock-one");
     var one_new_element = one_old_element.cloneNode(true);
     one_old_element.parentNode.replaceChild(one_new_element, one_old_element);
-    var clockOne = initializeClockOne('clock-one', deadline)
+    clockOne = initializeClockOne('clock-one', deadline)
     clearInterval(clockTwo);
     clockTwo = null;
     var clockTwo = initializeClockTwo('clock-two', deadline2)
@@ -227,14 +244,14 @@ ready(function () {
   shieldLaps = []
   invisLaps = []
   var currentTime = Date.parse(new Date());
-  var deadline = new Date(currentTime + .5*60*1000);
+  var deadline = new Date(currentTime + .3*60*1000);
   clockOne = initializeClockOne('clock-one', deadline);
 
   var currentTime2 = deadline
-  var deadline2 = new Date((currentTime) + .1*60*1000);
+  var deadline2 = new Date((currentTime) + .05*60*1000);
   var clockTwo = initializeClockTwo('clock-two', deadline2)
 
   var currentTime3 = deadline
-  var deadline3 = new Date((currentTime) + .2*60*1000);
+  var deadline3 = new Date((currentTime) + .05*60*1000);
   var clockThree = initializeClockThree('clock-three', deadline3)
 });
