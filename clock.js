@@ -1,5 +1,7 @@
 function saveNote() {
   var newNote = document.getElementById('note');
+  var newColorOne = document.getElementById('colorOne');
+  var newColorTwo = document.getElementById('colorTwo');
   console.log(newNote.value);
 
   var element  = document.getElementById('note-list'); // assuming ul exists
@@ -10,6 +12,9 @@ function saveNote() {
     for (var i = 0, n; n = notes[i]; i++) {
       var liElement = document.createElement('li');
       liElement.textContent = n;
+      liElement.style.backgroundColor = newColorTwo.value ;
+      liElement.borderLeft = "6px solid"
+      liElement.borderLeftColor = "newColorOne.value";
       fragment.appendChild(liElement);
     }
 
