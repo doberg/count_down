@@ -82,6 +82,10 @@ h3{
   cursor: pointer;
   background-image: url("eye-red.svg");
 }
+ul.invis-laps{
+  color: #e2c08d;
+  padding-left: 40px;
+}
 
 .shield{
   cursor: not-allowed;
@@ -96,6 +100,11 @@ h3{
   background-repeat: no-repeat;
   background-position: center;
   visibility: visible;
+}
+
+ul.shield-laps{
+  color: #e2c08d;
+  padding-left: 40px;
 }
 
 .shield.red{
