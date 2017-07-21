@@ -176,9 +176,9 @@ function resetClock(id) {
   minutesSpan.style.background = "#282c34";
   secondsSpan.style.background = "#282c34";
   var currentTime = Date.parse(new Date());
-  var deadline  = new Date(currentTime + 2*60*1000);
-  var deadline2 = new Date(currentTime +  .2*60*1000);
-  var deadline3 = new Date(currentTime +  .2*60*1000);
+  var deadline  = new Date(currentTime + 12*60*1000);
+  var deadline2 = new Date(currentTime +  2*60*1000);
+  var deadline3 = new Date(currentTime +  2*60*1000);
 
   if (id == 'clock-one') {
     clearInterval(clockOne);
