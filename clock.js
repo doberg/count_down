@@ -295,7 +295,6 @@ function minusSeconds(id, seconds) {
   } else if (id == 'clock-three') {
     console.log(clockThree);
     // clockThree = clockThree.setSeconds(clockThree.getSeconds() - seconds);
-    endTimeClockThree = new Date(clockThree.getTime() - sec);
     console.log(endTimeClockThree);
     clearInterval(clockThree);
     clockThree = null;
