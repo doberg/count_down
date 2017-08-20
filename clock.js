@@ -104,7 +104,7 @@ function initializeClockOne(id, endtime) {
   return endtime;
 };
 
-function initializeClockTwo(id, endtime) {
+function initializeClockTwo(id) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
@@ -115,14 +115,16 @@ function initializeClockTwo(id, endtime) {
   old_element.parentNode.replaceChild(new_element, old_element);
 
   function updateClockTwo() {
-    var t = getTimeRemaining(endtime);
+    clockTwoTimeLeft = getTimeRemaining(endTimeClockTwo);
 
-    minutesSpan.innerHTML = ('0' + timeLeftClockTwo.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + timeLeftClockTwo.seconds).slice(-2);
+    minutesSpan.innerHTML = ('0' + clockTwoTimeLeft.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + clockTwoTimeLeft.seconds).slice(-2);
 
-    if (t.total <= 0) {
+    if (clockTwoTimeLeft.total <= 0) {
       clearInterval(clockTwo);
       clockTwo = null;
+      clockTwoTimeLeft = null;
+      endTimeClockTwo = null;
       alertBadge(id);
       document.getElementById('shield').className = "shield green";
       document.getElementById('shield').addEventListener("click", function(e) {
@@ -134,14 +136,14 @@ function initializeClockTwo(id, endtime) {
   updateClockTwo();
   clockTwo = setInterval(updateClockTwo, 1000);
 
-  return endtime;
+  return endTimeClockTwo;
 };
 
-function initializeClockThree(id, endtime) {
+function initializeClockThree(id) {
   var clock = document.getElementById(id);
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  var resetButton = clock.querySelector('.reset-button');
+  // var resetButton = clock.querySelector('.reset-button');
   var eye = document.getElementById('eye')
   alertBadgeRemove(id);
   document.getElementById('eye').className = "eye"
@@ -150,14 +152,16 @@ function initializeClockThree(id, endtime) {
   old_element.parentNode.replaceChild(new_element, old_element);
 
   function updateClockThree() {
-    var t = getTimeRemaining(endtime);
+    clockThreeTimeLeft = getTimeRemaining(endTimeClockThree);
 
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    minutesSpan.innerHTML = ('0' + clockThreeTimeLeft.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + clockThreeTimeLeft.seconds).slice(-2);
 
-    if (t.total <= 0) {
+    if (clockThreeTimeLeft.total <= 0) {
       clearInterval(clockThree);
       clockThree = null;
+      clockThreeTimeLeft = null;
+      endTimeClockThree = null;
       alertBadge(id);
       document.getElementById('eye').className = "eye green";
       document.getElementById('eye').addEventListener("click", function(e) {
@@ -169,7 +173,7 @@ function initializeClockThree(id, endtime) {
   updateClockThree();
   clockThree = setInterval(updateClockThree, 1000);
 
-  return endtime;
+  return endTimeClockThree;
 };
 
 function resetClock(id) {
@@ -180,8 +184,6 @@ function resetClock(id) {
   secondsSpan.style.background = "#282c34";
   var currentTime = Date.parse(new Date());
   var deadline  = new Date(currentTime + 12*60*1000);
-  var deadline2 = new Date(currentTime +  2*60*1000);
-  var deadline3 = new Date(currentTime +  2*60*1000);
 
   if (id == 'clock-one') {
     clearInterval(clockOne);
@@ -198,20 +200,25 @@ function resetClock(id) {
   } else if (id == 'clock-two') {
     clearInterval(clockTwo);
     clockTwo = null;
+    clockTwoTimeLeft = null;
+    endTimeClockTwo = null;
+    endTimeClockTwo = new Date(currentTime +  2*60*1000);
     recordShieldLap()
     var two_old_element = document.getElementById("clock-two");
     var two_new_element = two_old_element.cloneNode(true);
     two_old_element.parentNode.replaceChild(two_new_element, two_old_element);
-    clockTwo = initializeClockTwo('clock-two', deadline2)
-    console.log(clockTwo)
+    clockTwo = initializeClockTwo('clock-two')
   } else if (id == 'clock-three') {
     clearInterval(clockThree);
     clockThree = null;
+    clockThreeTimeLeft = null;
+    endTimeClockThree = null;
+    endTimeClockThree = new Date(currentTime +  2*60*1000);
     recordInvisLap()
     var three_old_element = document.getElementById("clock-three");
     var three_new_element = three_old_element.cloneNode(true);
     three_old_element.parentNode.replaceChild(three_new_element, three_old_element);
-    clockThree = initializeClockThree('clock-three', deadline3)
+    clockThree = initializeClockThree('clock-three')
     console.log(clockThree)
   }
 };
@@ -273,26 +280,32 @@ function minusSeconds(id, seconds) {
   if (id == 'clock-two') {
     console.log(clockTwo)
     // clockTwo.setSeconds(clockTwo.getSeconds() - seconds);
-    endTimeClockTwo = new Date(endTimeClockTwo.getTime() - sec);
     console.log(endTimeClockTwo);
     clearInterval(clockTwo);
     clockTwo = null;
-    var two_old_element = document.getElementById("clock-two");
+    clockTwoTimeLeft = null;
+    endTimeClockTwo = new Date(endTimeClockTwo.getTime() - sec);
+    console.log(endTimeClockTwo);
+    var two_old_element = document.getElementById(id);
     var two_new_element = two_old_element.cloneNode(true);
-    three_old_element.parentNode.replaceChild(two_new_element, two_old_element);
-    clockTwo = initializeClockTwo('clock-two', endTimeClockTwo);
+    two_old_element.parentNode.replaceChild(two_new_element, two_old_element);
+    clockTwo = initializeClockTwo(id);
+    console.log(clockTwo);
 
   } else if (id == 'clock-three') {
     console.log(clockThree);
     // clockThree = clockThree.setSeconds(clockThree.getSeconds() - seconds);
-    d = new Date(clockThree.getTime() - sec);
-    console.log(d);
+    endTimeClockThree = new Date(clockThree.getTime() - sec);
+    console.log(endTimeClockThree);
     clearInterval(clockThree);
     clockThree = null;
-    var three_old_element = document.getElementById("clock-three");
+    clockThreeTimeLeft = null;
+    endTimeClockThree = new Date(endTimeClockThree.getTime() - sec);
+    console.log(endTimeClockThree);
+    var three_old_element = document.getElementById(id);
     var three_new_element = three_old_element.cloneNode(true);
     three_old_element.parentNode.replaceChild(three_new_element, three_old_element);
-    clockThree = initializeClockThree('clock-three', d);
+    clockThree = initializeClockThree(id);
     console.log(clockThree);
   }
 };
@@ -300,7 +313,12 @@ function minusSeconds(id, seconds) {
 var clockOne;
 var clockTwo;
 var clockThree;
-var timeLeftClockTwo;
+var endTimeClockOne;
+var endTimeClockTwo;
+var endTimeClockThree;
+var clockOneTimeLeft;
+var clockTwoTimeLeft;
+var clockThreeTimeLeft;
 
 ready(function () {
   shieldLaps = []
