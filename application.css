@@ -97,7 +97,7 @@ h3{
 ul.invis-laps{
   color: #e2c08d;
   list-style-type: none;
-  margin:  10px 0px 10px 145px;
+  margin:  10px 0px 10px 0px;
   padding: 0;
   display: inline-block;
 }
